@@ -11,8 +11,9 @@
 ```
 #include <stdio.h>
 int main() {
-   // printf() displays the string inside quotation
    printf("Hello, World!");
-   return 0;
 }
 ```
+|1|2|3|
+|-|-|-|
+|4|5|6|
