@@ -1,5 +1,4 @@
-# Lab 3: YOUR_FIRSTNAME LASTNAME
-
+# Lab 3: HADWIGER TOMAS
 ### Overflow times
 
 1. Complete table with overflow times.
