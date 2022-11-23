@@ -88,14 +88,19 @@ ISR(TIMER1_OVF_vect)
 ISR(ADC_vect)
 {
     uint16_t value;
+    uint64_t voltage;
     char string[4];  // String for converted numbers by itoa()
     char string_hex[4];
 
     // Read converted value
     // Note that, register pair ADCH and ADCL can be read as a 16-bit value ADC
     value = ADC;
+    voltage = value*5;
+    voltage /= 1023;
+    voltage *= 1000;
     // Convert "value" to "string" and display it
-    itoa(value, string, 10);
+
+    itoa(voltage, string, 10);
     lcd_gotoxy(8, 0); lcd_puts("    "); 
     lcd_gotoxy(8, 0); lcd_puts(string);
     itoa(value, string_hex, 16);
@@ -109,5 +114,4 @@ ISR(ADC_vect)
     else if (ADC > 390 & ADC < 420) {lcd_gotoxy(8, 1); lcd_puts("       "); lcd_gotoxy(8, 1); lcd_puts("Left"); }
     else if (ADC > 640 & ADC < 660) {lcd_gotoxy(8, 1); lcd_puts("       "); lcd_gotoxy(8, 1); lcd_puts("Select"); }
     else if (ADC<=1023) {lcd_gotoxy(8, 1); lcd_puts("      "); lcd_gotoxy(8, 1); lcd_puts("None"); }
-    
 }
