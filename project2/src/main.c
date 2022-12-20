@@ -6,12 +6,9 @@
 #define ANGLE1 1200 
 #define ANGLE2 2400
 
-volatile uint16_t MOVE = 0;
 volatile uint16_t pos_min = ANGLE1;
 volatile uint16_t pos_max = ANGLE2;
 
-
-uint8_t i = 0;
 int main(void)
 {   
     // init timer
@@ -63,16 +60,17 @@ ISR(TIMER0_OVF_vect)
 
 ISR(ADC_vect)
 {
-  
+  double value;
+  value = 1000.0 + ((ADC / 1000.0) * 1000.0);
+
   if ((ADMUX & 0xF) == 0) {
     switch_channel(1);
     
-    OCR1A = 1000.0 + ((ADC / 1000.0) * 1000.0);
+    OCR1A = value;
 
   } else if ((ADMUX & 0xF) == 1) {
     switch_channel(0);
-    
-    OCR1B = 1000.0 + ((ADC / 1000.0) * 1000.0);
+    OCR1B = value;
 
   }
 }
