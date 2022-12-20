@@ -61,7 +61,7 @@ ISR(TIMER0_OVF_vect)
 ISR(ADC_vect)
 {
   double value;
-  value = 1000.0 + ((ADC / 1000.0) * 1000.0);
+  value = 1200.0 + ((ADC / 1200.0) * 1200.0);
 
   if ((ADMUX & 0xF) == 0) {
     switch_channel(1);
