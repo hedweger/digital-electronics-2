@@ -16,6 +16,7 @@ Jako platformu využíváme Arduino Uno. Piny 9 a 10 jsou využity jako PWM výs
 ## Software description
 
 [**timer.h**](/include/timer.h) - pro generování interruptů používáme 16ms časovač, definováný v knihovně timer.h
+
 [**main.c**](/src/main.c) - hlavní soubor našeho programu
 
 ## Video
